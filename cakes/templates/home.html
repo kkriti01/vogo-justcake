@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar-nav-fixed affix">
+                <div class="well">
+                    <ul class="nav ">
+                        <li class="nav-header">Category</li>
+                        {% for category in categories %}
+                        <li><a href="{% url 'home' %}?category_id={{ category.id }}">{{ category.name }}</a></li>
+                            {% empty %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+        <div class="col-md-9">
+            {% for cake in cakes %}
+                <div class="col-xs-18 col-sm-4 col-md-3">
+                    <div class="productbox">
+                        <div class="imgthumb img-responsive">
+                            <img src="{{ cake.image.url }}" style="height:200px">
+                        </div>
+                        <div class="caption">
+                            <h5>{{ cake.title }}</h5>
+                                <a href="#"  role="button">Rs. {{ cake.price }}</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <h5>No Cake found. Please <a class="btn btn-primary btn-xs" href="{% url 'fetch_cakes' %}">fetch</a> cakes data from justcake.com</h5>
+            {% endfor %}
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+{% endblock content %}

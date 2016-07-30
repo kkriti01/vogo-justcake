@@ -1,0 +1,34 @@
+# Executables
+*.pyc
+
+# Temporary files
+*~
+*.swo
+*.swp
+*.orig
+.anvil
+
+# cscope files
+cscope.*
+
+
+# ide project files
+.project
+.pydevproject
+.idea
+
+# VIM related files
+.project.ide.files
+
+#Sqlite files
+*.sqlite
+*.sqlite3
+
+#Media directory
+media
+staticfiles
+
+
+
+# Others
+*.DS_Store
